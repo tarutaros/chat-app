@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
 
   private
 
-  def massage_params
+  def message_params
     params.require(:message).permit(:content).merge(user_id: current_user.id)
   end
 end

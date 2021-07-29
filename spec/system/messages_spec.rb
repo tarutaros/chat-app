@@ -17,6 +17,7 @@ RSpec.describe 'メッセージ投稿機能', type: :system do
       # DBに保存されていないことを確認する
       expect {
         find('input[name="commit"]').click
+      }.not_to change { Message.count }
 
       # 元のページに戻ってくることを確認する
       expect(current_path).to eq(room_messages_path(@room_user.room))
